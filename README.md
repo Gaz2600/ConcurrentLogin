@@ -144,5 +144,6 @@ For the final tab, leave the following check boxes empty.
 
 
 
-
+#  Known "Bugs"
+If you are able to log into multiple computers at the same time with the same user and click "logoff remote" on all the computers at the same time it will let the users log into all the computers, basicly they all try to edit the same text file at the same time which is enough to close out the script with an error and let them continue into the OS.
 -- more instructions coming soon
