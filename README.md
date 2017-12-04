@@ -82,8 +82,8 @@ And for the final part, at ‘Settings’ tab, configure the task to get stopped
 
 
 # Cleanup process
-During our solution, we understood that we can utilize a simple txt file in order to limit the number of logins a user can have and so far we have talked about how this process will happen. As you may guess, during the time we need to make sure there are no Phantom text files in a user folder because if there are the user will not be able to login because of a text file which points to no one.
-In order to fix that, we need to delete text file for each user in a short scheduled time. What we will do is to create a task which deletes all the next files in a folder for every single user account. You may ask, if we delete the text files, how the logon script will work in absence of these files? The answer is simple! The logon script actually overwrite text file every 10 seconds. Let’s make this clear with an example:
+This script uses a simple txt file in order to limit the number of logins a user can have. To prevent orphaned txt files we need to delete the file for each user on a short scheduled time. To do this create a scheduled task which deletes all the text files in a folder for every user account. How the logon script will work in absence of these files? The logon script actually overwrites text file every 10 seconds. Additonally when the user logs off a logoff script runs to remove the txt file.  Let’s make this clear with an example:
+  Scenario 1
 	• User A logs on.
 	• Text file is created.
 	• Clean Up script will delete all text files.
@@ -93,7 +93,20 @@ In order to fix that, we need to delete text file for each user in a short sched
 	• User A logs off.
 	• The logoff script will delete the text file.
 	• Since the user has logged off, the logon script no longer applies any more and the user folder remains empty.
-After all the explanation, we need to create our cleanup process. But before that, do not forget to change the script just like the previous steps:
+After all the explanation, we need to create our cleanup process. 
+
+  Scenario 2
+	• User A logs onto computer A.
+	• Text file is created.
+	• Clean Up script will delete all text files.
+	• Text file for user A is again created.
+	• The clean up process repeats.
+	• Text file for user A is again created.
+	• User A forgets to log off computer A and tries to logon to another computer, Computer B.
+	• The logoff script will detect there is already a text file created, display a warning, and give the user the option to log off their remote session or their local session.
+	• If the user selects log off remote, the user will be logged off Computer A and the text file will be overwritten with the hostname of Computer B
+	
+Make sure you update the "CleanUp.ps1" script with the correct filepath:
 
             Get-ChildItem -Path "C:\Profiles" -Filter *.txt -Recurse | Remove-Item -Force 
 
