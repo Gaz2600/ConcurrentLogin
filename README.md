@@ -35,18 +35,18 @@ In the LogonScript there are multiple variables you will need to modify to fit y
      $computer = get-content $UserFileLocation #Do not edit
     #------------------------------------------------------------
      #Enter the location of the personalized logo, max height should be 65px and max width should be 380px
-     $LogoLocation = "\\eastmont206.local\NETLOGON\Limit2.0\smallvector.png"
+     $LogoLocation = "\\..\smallvector.png"
     #------------------------------------------------------------
      #Enter the txt you want to appear in the Window title bar
-     $MainFormTitle = "Eastmont IT Security Policy Violation"
+     $MainFormTitle = "IT Security Policy Violation"
     #------------------------------------------------------------
      #Enter the txt you want to appear in the window header
      $WindowTitleMsg = "WARNING: You Are Logged Into Multiple Locations"
     #------------------------------------------------------------
      #Enter the txt you wan to appear in the window body line 320
-     $Body = "District IT security policy allows users to log onto one workstation at a time.  You are already logged onto workstation $computer; therefore, you will be automatically logged off this workstation in 60 seconds.  
+     $Body = "IT security policy allows users to log onto one workstation at a time.  You are already logged onto workstation $computer; therefore, you will be automatically logged off this workstation in 60 seconds.  
 
-    If you need additional assistance please have your teacher contact the Helpdesk."
+    If you need additional assistance please contact the Helpdesk."
     #------------------------------------------------------------
      #Enter the total time in seconds befor auto logoff, keep in mind the total time it takes for a new user to login and for windows to     create the profile.
      $TimeSec = 60 
