@@ -97,3 +97,4 @@ After all the explanation, we need to create our cleanup process. But before tha
 
             Get-ChildItem -Path "C:\Profiles" -Filter *.txt -Recurse | Remove-Item -Force 
 
+-- more instructions coming soon
