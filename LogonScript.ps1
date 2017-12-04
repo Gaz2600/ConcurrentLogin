@@ -1,4 +1,4 @@
-﻿#############################################################
+#############################################################
 # Referances - This script was written using ideas from these locations
 #
 # http://www.scconfigmgr.com/2016/10/03/powershell-gui-reboot-prompt/
@@ -18,7 +18,7 @@
  $computer = get-content $UserFileLocation #Do not edit
 #------------------------------------------------------------
  #Enter the location of the personalized logo, max height should be 65px and max width should be 380px
- $LogoLocation = "\\..\smallvector.png"
+ $LogoLocation = "\\..\Logo.png"
 #------------------------------------------------------------
  #Enter the txt you want to appear in the Window title bar
  $MainFormTitle = "IT Security Policy Violation"
