@@ -10,7 +10,7 @@ Limit users to login to one computer at a time (Windows)
 
 # Requirements (Tested with Server 2012R2 and Windows 10)
 File Server/VM or location to host profile files
-"This file server will be the repository for our flag files. However, keep in mind that, it is possible to use the DC itself instead of a separate file server, but since the ‘CleanUp’ process will run every second as a scheduled task, it is better to not involve your domain controllers because it can cause some performance lags depending on the size of your environment." -Mahdi Tehrani
+This file server will be the repository for our flag files. However, keep in mind that, it is possible to use the DC itself instead of a separate file server, but since the ‘CleanUp’ process will run every second as a scheduled task, it is better to not involve your domain controllers because it can cause some performance lags depending on the size of your environment.
 
 Access to Group Policy
 Powershell WinRM turned on
@@ -22,8 +22,8 @@ Implementing this solution will be done in several steps:
   3. Cleanup process
   
 # 1. Creating a GPO for logon script
-"This step will cover the GPO part of this solution. If you remember, we talked about creating a flag time for the first time the user gets authenticated. The best way to implement the creation of this flag file is through a group policy.
-This GPO will configure a logon script and using this script, each time the user logs on, it creates the flag file in user’s folder in file server. Before using the script you need to customize it for your environment. You need to change some part of the script to apply in your environment. The red parts in the scripts should be changed:" -Mahdi Tehrani
+This step will cover the GPO part of this solution. If you remember, we talked about creating a flag time for the first time the user gets authenticated. The best way to implement the creation of this flag file is through a group policy.
+This GPO will configure a logon script and using this script, each time the user logs on, it creates the flag file in user’s folder in file server. Before using the script you need to customize it for your environment. You need to change some part of the script to apply in your environment. The red parts in the scripts should be changed:
 
 In the LogonScript there are multiple variables you will need to modify to fit your environment. 
 
@@ -54,9 +54,9 @@ In the LogonScript there are multiple variables you will need to modify to fit y
     #############################################################
 
 
-After applying the required changes, follow the steps below to create the GPO:"  -Mahdi Tehrani
+After applying the required changes, follow the steps below to create the GPO
 
-"Create a new GPO “LimitLogin and navigate to "User Configuration\Windows Settings\Scripts (Logon/Logoff)" and open "Logon"
+Create a new GPO “LimitLogin and navigate to "User Configuration\Windows Settings\Scripts (Logon/Logoff)" and open "Logon"
 
 Select the "PowerShell Scripts" tab and click on ‘Show Files’.
 
@@ -68,16 +68,16 @@ Under "For this GPO,run scripts in the following order" select "Run Windows Powe
 
 
 # Create user folders
-"This is the step where you actually create folders for each user. This folder will be used to hold flag file for each user. Since we want to use the path in a logon script later and we want to make sure that each user can touch its own flag file, we will name these folder to user ‘samaccountname’.
+This is the step where you actually create folders for each user. This folder will be used to hold flag file for each user. Since we want to use the path in a logon script later and we want to make sure that each user can touch its own flag file, we will name these folder to user ‘samaccountname’.
 The only problem is that there might be users who are added to Active Directory every hour and we do not want to spend time on creating user folders. As a result, this script will search the path for missing user folders and will create them immediately.
-Since we will need to edit this script to make it applicable in our environment, make sure that the paths below are correctly set in the "FolderCreation.ps1" script:"  -Mahdi Tehrani
+Since we will need to edit this script to make it applicable in our environment, make sure that the paths below are correctly set in the "FolderCreation.ps1" script:
 
     if((Test-Path -Path "C:\Profiles\$user") -eq $false)
     {
     New-Item -ItemType directory -Path "C:\Profiles\$user" | Out-Null
 
-"Now we can move to the next part of scheduling user folder creation.
-Firstly we need to install AD PowerShell module feature on your server. So open a PowerShell console and typeInstall-WindowsFeature RSAT-AD-PowerShell and hit enter." -Mahdi Tehrani
+Now we can move to the next part of scheduling user folder creation.
+Firstly we need to install AD PowerShell module feature on your server. So open a PowerShell console and typeInstall-WindowsFeature RSAT-AD-PowerShell and hit enter.
 
 Open Task Scheduler and ‘Create task’.
 On the ‘General’ tab, make sure that the ‘Run whether user is logged on or not’ is selected.
