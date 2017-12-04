@@ -1,6 +1,12 @@
 # ConcurrentLogin
 Limit users to login to one computer at a time (Windows)
 
+# Credits
+ I had a need to restrict user logins in my environment and also did not have the budget to purchase any of the existing solutions.  I found a script (1) that came very close to what I needed but I still needed more fuctionality such as tracking which computer a user is already logged into and giving the user the ability to remotly log off the computer.  I used ideas from (1) and (2) to create these scripts to fit my environments needs.  Thank you to reddit.com/r/PowerShell/ and reddit.com/user/anotherjesus for getting me over some hurdles. I hope this can help you and your environment.
+ 
+  1. https://social.technet.microsoft.com/wiki/contents/articles/37839.active-directory-limit-concurrent-user-logins.aspx
+  2. http://www.scconfigmgr.com/2016/10/03/powershell-gui-reboot-prompt/
+  3. https://www.reddit.com/r/PowerShell/comments/7gq6hx/exit_a_form_but_still_run_a_loop/
 
 # Requirements (Tested with Server 2012R2 and Windows 10)
 File Server/VM or location to host profile files
