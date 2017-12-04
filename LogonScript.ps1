@@ -1,16 +1,4 @@
 #############################################################
-# Referances - This script was written using ideas from these locations
-#
-# http://www.scconfigmgr.com/2016/10/03/powershell-gui-reboot-prompt/
-# https://social.technet.microsoft.com/wiki/contents/articles/37839.active-directory-limit-concurrent-user-logins.aspx
-# https://www.reddit.com/r/PowerShell/comments/7gq6hx/exit_a_form_but_still_run_a_loop/
-# https://poshgui.com/#
-# https://social.technet.microsoft.com/Forums/Lync/en-US/a5773d51-6b01-4428-802a-21e2c7ac9d5e/handle-close-button-on-wpf-window-with-powershell?forum=ITCG
-# https://pastebin.com/
-#
-#############################################################
-
-#############################################################
 # Edit to fit your environment
  #Enter the location of where you want the user file to be stored
  $UserFileLocation = "\\concurrentlogin\Profiles$\$env:username\1.txt"
