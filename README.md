@@ -30,12 +30,12 @@ In the LogonScript there are multiple variables you will need to modify to fit y
     #############################################################
     # Edit to fit your environment
      #Enter the location of where you want the user file to be stored
-     $UserFileLocation = "\\concurrentlogin\Profiles2$\$env:username\1.txt"
+     $UserFileLocation = "\\concurrentlogin\Profiles$\$env:username\1.txt"
     #------------------------------------------------------------
      $computer = get-content $UserFileLocation #Do not edit
     #------------------------------------------------------------
      #Enter the location of the personalized logo, max height should be 65px and max width should be 380px
-     $LogoLocation = "\\..\smallvector.png"
+     $LogoLocation = "\\..\Logo.png"
     #------------------------------------------------------------
      #Enter the txt you want to appear in the Window title bar
      $MainFormTitle = "IT Security Policy Violation"
