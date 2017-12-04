@@ -110,4 +110,14 @@ Make sure you update the "CleanUp.ps1" script with the correct filepath:
 
             Get-ChildItem -Path "C:\Profiles" -Filter *.txt -Recurse | Remove-Item -Force 
 
+Now go ahead and apply the rest of the configuration.
+One more time, open ‘Scheduled Tasks’ to create a new task.
+Name the task what ever you like but make sure that the below settings are configured properly.
+At the triggers tab, click ‘New’ and follow the next image for configuration.
+And for the ‘Action’ tab, add the script which is needed for clean up process according to the images.
+For the final tab, leave the following check boxes empty.
+
+
+
+
 -- more instructions coming soon
