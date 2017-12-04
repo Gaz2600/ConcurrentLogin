@@ -91,13 +91,21 @@ And for the final part, at ‘Settings’ tab, configure the task to get stopped
 This script uses a simple txt file in order to limit the number of logins a user can have. To prevent orphaned txt files we need to delete the file for each user on a short scheduled time. To do this create a scheduled task which deletes all the text files in a folder for every user account. How the logon script will work in absence of these files? The logon script actually overwrites text file every 10 seconds. Additonally when the user logs off a logoff script runs to remove the txt file.  Let’s make this clear with an example:
   Scenario 1
 	• User A logs on.
+	
 	• Text file is created.
+	
 	• Clean Up script will delete all text files.
+	
 	• Text file for user A is again created.
+	
 	• The clean up process repeats.
+	
 	• Text file for user A is again created.
+	
 	• User A logs off.
+	
 	• The logoff script will delete the text file.
+	
 	• Since the user has logged off, the logon script no longer applies any more and the user folder remains empty.
 After all the explanation, we need to create our cleanup process. 
 
