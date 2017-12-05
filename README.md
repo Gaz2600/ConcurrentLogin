@@ -13,6 +13,7 @@ File Server/VM or location to host profile files
 This file server will be the repository for our flag files. However, keep in mind that, it is possible to use the DC itself instead of a separate file server, but since the ‘CleanUp’ process will run every second as a scheduled task, it is better to not involve your domain controllers because it can cause some performance lags depending on the size of your environment.
 
 Access to Group Policy
+
 Powershell WinRM turned on
 
 # Implementation
