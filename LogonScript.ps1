@@ -23,7 +23,7 @@ If you need additional assistance please contact the Helpdesk."
  $TimeSec = 60 
 #
 #############################################################
-
+# TODO: 1. add logic to test if the network connection is connected, if yes continue as normal, if no prompt for a network connection continue to log off in aloted amount of time if no connection is provided.
  if(Test-Path $UserFileLocation)
 {
 
@@ -101,6 +101,7 @@ If you need additional assistance please contact the Helpdesk."
 
  #----------------------------------------------
  # Log off remote computer
+ # TODO: 1. Need to add logic to check if the user has been logged off the remote computer before continuing to the loop
  #----------------------------------------------
  $ButtonLogOffRemote_Click={
  $computer = get-content $UserFileLocation
